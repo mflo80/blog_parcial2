@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registro</title>
 </head>
 <body>
-    <form action="sblog" method="post">
+    <form action="login" method="post">
         <div class="container">
 
             <h2>SIMPLE BLOG</h2>
-            <h3>Inicio de Sesión</h3>
+            <h3>Registro de Usuario</h3>
 
             <br>
             
@@ -19,17 +19,17 @@
             
             <br><br>
             
+            <label for="email">Correo electrónico:</label>
+            <input type="email" name="email" required>
+            
+            <br><br>
+            
             <label for="password">Contraseña:</label>
             <input type="password" name="password" required>
             
-            <br>
-
-            <p>¿No tienes cuenta en Simple Blog?
-            <a href="registro">Registrar</a></p>
-
-            <br>
+            <br><br>
             
-            <button type="submit">Iniciar Sesión</button>
+            <button type="submit">Registrar</button>
         </div>
     </form>    
 </body>

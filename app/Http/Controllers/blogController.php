@@ -18,6 +18,9 @@ class blogController extends Controller
     public function crear(){
         return view("crear");
     }
+    public function blog(){
+        return view("blog");
+    }
     public function post($numero){
         return view("post?=$numero");
     }

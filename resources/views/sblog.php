@@ -6,10 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bienvenido a Simple Blog</h1>
-
-    <form action="login">
-        <button type="submit">Iniciar Sesión</button>
-    </form>
+    <h1>Bievenido $name a Simple Blog</h1>
 </body>
 </html>

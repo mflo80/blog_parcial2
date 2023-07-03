@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\blogController;
+//use App\Http\Controllers\blogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', "index")->name('index');
 Route::view('/login', "login")->name('login');
 Route::view('/registro', "registro")->name('registro');
+Route::view('/sblog', "sblog")->middleware('auth')->name('sblog');
