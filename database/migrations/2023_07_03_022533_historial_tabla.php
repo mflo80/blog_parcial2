@@ -11,14 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('historial', function (Blueprint $table) {
+            $table->bigIncrements('idHistorial');
+            $table->timestamp('fechaHoraCambio');
+            $table->unsignedBigInteger('idPost')->nullable();
+            $table->foreign('idPost')->references('idPost')->on('usuario_realiza_post');
+            $table->softDeletes();
+        });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('historial');
     }
 };

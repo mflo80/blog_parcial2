@@ -11,14 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('publicidad', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre', 50);
+            $table->string('URL');
+            $table->date('fechaExpiracion');
+            $table->softDeletes();
+        });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('publicidad');
     }
 };

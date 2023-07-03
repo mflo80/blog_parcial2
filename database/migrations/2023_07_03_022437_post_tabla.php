@@ -11,14 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('post', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('titulo', 50);
+            $table->string('cuerpo', 1000);
+            $table->timestamp('fechaHora');
+            $table->softDeletes();
+        });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('post');
     }
 };

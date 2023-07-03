@@ -11,14 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('usuario_realiza_post', function (Blueprint $table) {
+            $table->unsignedBigInteger('idPost');
+            $table->unsignedBigInteger('idUsuario');
+            $table->foreign('idPost')->references('id')->on('post');
+            $table->foreign('idUsuario')->references('id')->on('usuario');
+            $table->primary('idPost');
+            $table->softDeletes();
+        });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('usuario_realiza_post');  
     }
 };
