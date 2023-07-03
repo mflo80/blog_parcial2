@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre', 30);
             $table->string('correo')->unique();
             $table->string('contrasenia');
+            $table->rememberToken();
             $table->softDeletes();
         });
     }
