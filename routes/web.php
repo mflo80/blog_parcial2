@@ -21,8 +21,11 @@ use App\Http\Controllers\LogoutController;
 Route::view('/', "index")->name('index');
 Route::view('/home', "home")->name('home');
 Route::view('/sblog', "sblog")->middleware('auth')->name('sblog');
-Route::get('login', [LoginController::class, 'login'])->name('login');
-Route::post('customLogin', [LoginController::class, 'customLogin'])->name('customLogin'); 
-Route::get('registro', [RegistroController::class, 'registro'])->name('registro');
-Route::post('customRegistro', [RegistroController::class, 'customRegistro'])->name('customRegistro'); 
-Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::get('login', [LoginController::class, 'Crear'])->name('login');
+Route::post('login', [LoginController::class, 'Almacenar']);
+
+Route::get('registro', [RegistroController::class, 'Crear']);
+Route::post('registro', [RegistroController::class, 'Almacenar']);
+
+Route::get('logout', [LogoutController::class, 'Salir']);

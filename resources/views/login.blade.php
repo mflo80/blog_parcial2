@@ -5,15 +5,18 @@
     <hr size="1px" color="black">
     <h3>Inicio de Sesión</h3>
 
-    <form action="sblog" method="post">
+    <form action="/login" method="post">
+        {{ csrf_field() }}
         <div class="container">
-            <label for="name">Nombre de usuario:</label>
-            <input type="text" name="name" required>
+            <label for="email">Correo Electrónico:</label>
+            <input type="text" name="email" required>
             
             <br><br>
             
             <label for="password">Contraseña:</label>
             <input type="password" name="password" required>
+
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
             <p>¿No tienes cuenta en Simple Blog?
             <a href="registro">Registrar</a></p>

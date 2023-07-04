@@ -3,30 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
 
-    public function login(){
+    public function Crear(){
         return view('login');
     }
     
-    public function customLogin(Request $request){
-        {
-            $request->validate([
-                'correo' => 'required',
-                'contrasenia' => 'required',
+    public function Almacenar(Request $request): RedirectResponse
+    {
+        if (auth()->attempt(request(['email', 'password'])) == false) {
+            return back()->withErrors([
+                'message' => 'The email or password is incorrect, please try again'
             ]);
-    
-            $credentials = $request->only('nombre', 'contrasenia');
-    
-            if (Auth::attempt($credentials)) {
-                return redirect()->intended('home')
-                            ->withSuccess('Signed in');
-            }
-    
-            return redirect("login")->withSuccess('Inicio de sesión no válido');
         }
+        
+        return redirect()->to('sblog');
     }
 }

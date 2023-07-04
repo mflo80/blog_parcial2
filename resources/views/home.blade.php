@@ -10,27 +10,26 @@
         <div class="container">
             <div class="navbar">
                 <tr>
-                    @guest
                     <td>
                         ---
                     </td>
                     <td>
-                        <a href="{{ route('login') }}">Iniciar Sesión</a>
+                        <a href="login">Iniciar Sesión</a>
                     </td>
                     <td>
                         ---
                     </td>
                     <td>
-                        <a href="{{ route('registro') }}">Registro</a>
+                        <a href="registro">Registro</a>
                     </td>
                     <td>
                         ---
                     </td>
-                    @else
+                    
                     <td>
-                        <a href="{{ route('logout') }}">Cerrar Sesión</a>
+                        <a href="logout">Cerrar Sesión</a>
                     </td>
-                    @endguest
+                    
                 </tr>
             </div>
         </div>

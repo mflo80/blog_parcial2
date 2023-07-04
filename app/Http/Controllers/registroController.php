@@ -2,38 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\Models\Usuario;
+use App\Models\User;
 
 class RegistroController extends Controller
 {
-    public function registro()
-    {
+    public function Crear() {
         return view('registro');
     }
 
-    public function customRegistro(Request $request)
+    public function Almacenar()
     {  
-        $request->validate([
-            'nombre' => 'required',
-            'correo' => 'required|correo|unique:usuario',
-            'contrasenia' => 'required|min:6',
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
         ]);
            
-        $data = $request->all();
-        $check = $this->create($data);
-
-        return redirect("login")->withSuccess('Debe iniciar sesión');
+        $user = User::create(request(['name', 'email', 'password']));
+        
+        auth()->login($user);
+        
+        return redirect()->to('login');
     }
-
-
-    public function create(array $data)
-    {
-      return Usuario::create([
-        'nombre' => $data['nombre'],
-        'correo' => $data['correo'],
-        'contrasenia' => Hash::make($data['contrasenia'])
-      ]);
-    }    
 }
