@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuario_califica_post', function (Blueprint $table) {
+        Schema::create('UsuarioCalificaPost', function (Blueprint $table) {
             $table->unsignedBigInteger('idUsuario');
             $table->unsignedBigInteger('idPost');
             $table->enum('puntuacion', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
             $table->timestamp('fecha');
-            $table->foreign('idUsuario')->references('id')->on('usuario');
-            $table->foreign('idPost')->references('id')->on('post');
+            $table->foreign('idUsuario')->references('id')->on('Usuario');
+            $table->foreign('idPost')->references('id')->on('Post');
             $table->primary(['idUsuario', 'idPost']);
             $table->softDeletes();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuario_califica_post');    
+        Schema::dropIfExists('UsuarioCalificaPost');    
     }
 };

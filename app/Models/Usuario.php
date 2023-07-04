@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    protected $table = 'Usuario';
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -44,11 +46,10 @@ class User extends Authenticatable
         'contrasenia' => 'hashed',
     ];
 
-    protected function name(): Attribute{
+    protected function nombre(): Attribute{
         return new Attribute(
-            set: function($value){
-                return strtolower($value);
-            }
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
         );
     }
 }

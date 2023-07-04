@@ -2,6 +2,7 @@
 
 //use App\Http\Controllers\blogController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\loginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', "index")->name('index');
+Route::view('/home', "home")->name('home');
 Route::view('/login', "login")->name('login');
 Route::view('/registro', "registro")->name('registro');
 Route::view('/sblog', "sblog")->middleware('auth')->name('sblog');

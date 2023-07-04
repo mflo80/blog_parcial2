@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-</head>
-<body>
+@extends('home')
+
+@section('content')
+    <br>
+    <hr size="1px" color="black">
+    <h3>Registro de Usuario</h3>
+    
     <form action="login" method="post">
         <div class="container">
-
-            <h2>SIMPLE BLOG</h2>
-            <h3>Registro de Usuario</h3>
-
-            <br>
-            
             <label for="name">Nombre de usuario:</label>
             <input type="text" name="name" required>
             
@@ -28,9 +21,18 @@
             <input type="password" name="password" required>
             
             <br><br>
+
+            <label for="password2">Confirmar contraseña:</label>
+            <input type="password" name="password2" required>
+            
+            <br><br>
             
             <button type="submit">Registrar</button>
         </div>
     </form>    
-</body>
-</html>
+    
+    <br>
+    <hr size="1px" color="black">
+    <br>
+    <a href="home">Página Principal</a></p>
+@endsection

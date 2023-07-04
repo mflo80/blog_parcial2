@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuario_realiza_post', function (Blueprint $table) {
+        Schema::create('UsuarioRealizaPost', function (Blueprint $table) {
             $table->unsignedBigInteger('idPost');
             $table->unsignedBigInteger('idUsuario');
-            $table->foreign('idPost')->references('id')->on('post');
-            $table->foreign('idUsuario')->references('id')->on('usuario');
+            $table->foreign('idPost')->references('id')->on('Post');
+            $table->foreign('idUsuario')->references('id')->on('Usuario');
             $table->primary('idPost');
             $table->softDeletes();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuario_realiza_post');  
+        Schema::dropIfExists('UsuarioRealizaPost');  
     }
 };
