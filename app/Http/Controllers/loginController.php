@@ -5,20 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class loginController extends Controller
+class LoginController extends Controller
 {
-    public function login(Request $request){
-        $credentials = [
-            "nombre" => $request->usuario,
-            "contrasenia" => $request->contrasenia, 
-        ];
-        $remember = ($request->has('remember') ? true : false);
 
-        if(Auth::attempt($credentials,$remember)){
-            $request->session()->regenerate();
-            return redirect()->intended('sblog');
-        }else{
-            return redirect('login');
+    public function login(){
+        return view('login');
+    }
+    
+    public function customLogin(Request $request){
+        {
+            $request->validate([
+                'correo' => 'required',
+                'contrasenia' => 'required',
+            ]);
+    
+            $credentials = $request->only('nombre', 'contrasenia');
+    
+            if (Auth::attempt($credentials)) {
+                return redirect()->intended('home')
+                            ->withSuccess('Signed in');
+            }
+    
+            return redirect("login")->withSuccess('Inicio de sesión no válido');
         }
     }
 }
