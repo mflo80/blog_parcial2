@@ -1,8 +1,9 @@
+
+     
 @extends('home')
 
 @section('content')
-    <br>    
-    <hr size="1px" color="black">
+
     <h3>Inicio de Sesión</h3>
 
     <form action="/login" method="post">
@@ -26,8 +27,16 @@
     </form>
 
     <br>
-    <hr size="1px" color="black">
+        <hr size="1px" color="black">
     <br>
+    
+    @error('message')
+        {{ $message }}
+        <br><br>
+            <hr size="1px" color="black">
+        <br>
+    @enderror
+
     <a href="home">Página Principal</a></p>
 @endsection
 

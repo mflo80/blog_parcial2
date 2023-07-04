@@ -25,7 +25,7 @@ Route::view('/sblog', "sblog")->middleware('auth')->name('sblog');
 Route::get('login', [LoginController::class, 'Crear'])->name('login');
 Route::post('login', [LoginController::class, 'Almacenar']);
 
-Route::get('registro', [RegistroController::class, 'Crear']);
+Route::get('registro', [RegistroController::class, 'Crear'])->name('registro');
 Route::post('registro', [RegistroController::class, 'Almacenar']);
 
 Route::get('logout', [LogoutController::class, 'Salir']);

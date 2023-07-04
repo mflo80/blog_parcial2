@@ -1,8 +1,7 @@
 @extends('home')
 
 @section('content')
-    <br>
-    <hr size="1px" color="black">
+
     <h3>Registro de Usuario</h3>
     
     <form action="/registro" method="post">
