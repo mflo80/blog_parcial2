@@ -26,6 +26,6 @@ Route::get('login', [LoginController::class, 'Crear'])->name('login');
 Route::post('login', [LoginController::class, 'Almacenar']);
 
 Route::get('registro', [RegistroController::class, 'Crear'])->name('registro');
-Route::post('registro', [RegistroController::class, 'Almacenar']);
+Route::post('registro', [RegistroController::class, 'Validar']);
 
 Route::get('logout', [LogoutController::class, 'Salir']);
