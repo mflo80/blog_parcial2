@@ -1,9 +1,13 @@
+<?php
+    if( auth()->check() ){
+        header("Location: sblog");
+        exit();
+    }
+?>
 
-     
 @extends('home')
 
 @section('content')
-
     <h3>Inicio de Sesión</h3>
 
     <form action="/login" method="post">
@@ -37,6 +41,6 @@
         <br>
     @enderror
 
-    <a href="home">Página Principal</a></p>
+    <a href="blog">Página Principal</a></p>
 @endsection
 

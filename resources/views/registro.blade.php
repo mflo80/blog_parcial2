@@ -1,3 +1,10 @@
+<?php
+    if( auth()->check() ){
+        header("Location: sblog");
+        exit();
+    }
+?>
+
 @extends('home')
 
 @section('content')
@@ -61,5 +68,5 @@
     <br>
     <hr size="1px" color="black">
     <br>
-    <a href="home">Página Principal</a></p>
+    <a href="blog">Página Principal</a></p>
 @endsection

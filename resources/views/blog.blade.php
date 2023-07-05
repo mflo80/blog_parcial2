@@ -1,3 +1,10 @@
+<?php
+    if( auth()->check() ){
+        header("Location: sblog");
+        exit();
+    }
+?>
+
 @extends('home')
 
 @section('content')
@@ -22,24 +29,8 @@
         <p>
             FECHA / HORA
         </p>
-        <p>
-            Puntuación: XX
-        </p>
-
-        @if( auth()->check() )
-            <button>
-                Calificar
-            </button>
-            <button>
-                Modificar
-            </button>
-            <button>
-                Eliminar
-            </button>
-        @endif
-
-        <br><br>  
-        <hr size="1px" color="black">
+        <br>
+            <hr size="1px" color="black">
     </div>
 
     <div>
@@ -62,24 +53,8 @@
         <p>
             FECHA / HORA
         </p>
-        <p>
-            Puntuación: XX
-        </p>
-
-        @if( auth()->check() )
-            <button>
-                Calificar
-            </button>
-            <button>
-                Modificar
-            </button>
-            <button>
-                Eliminar
-            </button>
-        @endif
-
-        <br><br>  
-        <hr size="1px" color="black">
+        <br>
+            <hr size="1px" color="black">
     </div>
 
     <div>
@@ -102,24 +77,8 @@
         <p>
             FECHA / HORA
         </p>
-        <p>
-            Puntuación: XX
-        </p>
-
-        @if( auth()->check() )
-            <button>
-                Calificar
-            </button>
-            <button>
-                Modificar
-            </button>
-            <button>
-                Eliminar
-            </button>
-        @endif
-
-        <br><br>  
-        <hr size="1px" color="black">
+        <br>
+            <hr size="1px" color="black">
     </div>
 
 @endsection

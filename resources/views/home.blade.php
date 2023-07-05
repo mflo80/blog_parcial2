@@ -46,7 +46,7 @@
 
             <br>    
             <hr size="1px" color="black">
-
+             
         </div>
         @yield('content')
     </body>
