@@ -2,10 +2,12 @@
 
 //use App\Http\Controllers\blogController;
 
+use App\Http\Controllers\ConsultasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,6 @@ use App\Http\Controllers\LogoutController;
     Route::post('registro', [RegistroController::class, 'Almacenar']);
 
     Route::get('logout', [LogoutController::class, 'Salir']);
+
+    Route::get('/blog',[PostController::class, 'buscar'])->name('post');
+    Route::get('/sblog',[PostController::class, 'buscar'])->name('post');

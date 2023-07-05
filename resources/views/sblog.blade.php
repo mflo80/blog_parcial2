@@ -3,50 +3,47 @@
 @section('content')
 
     <div>
-        @for ($i = 1; $i <= 3; $i++)
+        @foreach($posts as $post)
             <div>
                 <h2>
-                    POST {{ $i }}
+                    {{ $post->titulo }}
                 </h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. 
-                    Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. 
-                    Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. 
-                    Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi.
-                    Etiam id nibh posuere mauris pretium sollicitudin nec nec enim.
-                    Integer laoreet pharetra arcu, et pretium massa consequat ut.
+                    {{ $post->cuerpo }}
                 </p>
                 <p>
-                    Autor: NOMBRE
+                    Autor: {{ $post->idUsuario }}
                 </p>
                 <p>
-                    Creado: FECHA / HORA
-                </p>
-                <p>
-                    Última modificación: FECHA / HORA
+                    Creado: {{ date('d-M-Y H:m', strtotime($post->fechaHora)) }}
                 </p>
                 <p>
                     Puntuación: XX
                 </p>
         
                 @if( auth()->check() )
-                    <button>
-                        Calificar
-                    </button>
-                    <button>
-                        Modificar
-                    </button>
-                    <button>
-                        Eliminar
-                    </button>
+                    @if($post->idUsuario != auth()->user()->id)
+                        <button>
+                            Calificar
+                        </button>
+                    @endif
+                    @if($post->idUsuario == auth()->user()->id)
+                        <button>
+                            Modificar
+                        </button>
+                        <button>
+                            Eliminar
+                        </button>
+                    @endif
                 @endif
         
                 <br><br>  
                 <hr size="1px" color="black">
             </div>
-        @endfor
+        @endforeach
+        <center class="paginas">
+            {{  $posts->withQueryString()->links() }}
+        </center>
     </div>
 
 @endsection

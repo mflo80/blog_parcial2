@@ -18,7 +18,7 @@ class RegistroController extends Controller
             'name' => ['required', 'string', 'max:30', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
-            'password_confirmation' => ['required', 'string', 'min:4'],
+            'password_confirmation' => ['required', 'string', 'min:4']
         ]);
 
         User::create([

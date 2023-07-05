@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo', 50);
-            $table->string('cuerpo', 1000);
+            $table->string('titulo', 200);
+            $table->string('cuerpo', 2000);
             $table->timestamp('fechaHora');
             $table->unsignedBigInteger('idUsuario');
             $table->foreign('idUsuario')->references('id')->on('users');

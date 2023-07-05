@@ -35,49 +35,53 @@ class DatabaseSeeder extends Seeder
 
         DB::table('post')->insert([
             'titulo' => 'Hola Mundo',
-            'cuerpo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi. Etiam id nibh posuere mauris pretium sollicitudin nec nec enim. Integer laoreet pharetra arcu, et pretium massa consequat ut. ',
+            'cuerpo' => 'En informática, "Hola, mundo" o "Hello, World!", en inglés es un programa que muestra el texto «¡Hola, mundo!» en un dispositivo de visualización, en la mayoría de los casos la pantalla de un monitor. Este programa suele ser usado como introducción al estudio de un lenguaje de programación, siendo un primer ejercicio típico, y se considera fundamental desde el punto de vista didáctico. www.wikipedia.org https://es.wikipedia.org/wiki/Hola_mundo',
             'fechaHora' => now(),
             'idUsuario' => 1,
         ]);
 
         DB::table('post')->insert([
             'titulo' => 'Uruguay Campeón',
-            'cuerpo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi. Etiam id nibh posuere mauris pretium sollicitudin nec nec enim. Integer laoreet pharetra arcu, et pretium massa consequat ut. ',
+            'cuerpo' => 'La Selección Uruguaya Sub 20 demostró mucho carácter no solo a lo largo de la Copa del Mundo, sino sobre todo en la final ante Italia para imponerse por 1-0 y quedarse con su primer Mundial de la categoría de la historia, con un gol de Luciano Rodríguez a los 86 min que desató la locura de los 38.000 uruguayos presentes en el Estadio Único Diego Armando Maradona y que gritaron 3 millones. https://www.espn.com.uy/futbol/nota/_/id/12182211/con-garra-y-futbol-uruguay-italia-campeon-mundial-sub-20',
             'fechaHora' => now(),
             'idUsuario' => 2,
         ]);
 
         DB::table('post')->insert([
-            'titulo' => 'Guerra de Pedos',
-            'cuerpo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi. Etiam id nibh posuere mauris pretium sollicitudin nec nec enim. Integer laoreet pharetra arcu, et pretium massa consequat ut. ',
+            'titulo' => 'Guerra de Pedos 2023',
+            'cuerpo' => 'En Montevideo capital de la República Oriental del Uruguay, se llevó a cabo un inédito torneo (Guerra de Pedos), el gordo Juan Pérez logró obtener el primer título, al dejar desmayado a casi todo el público, incluídos los jueces.',
             'fechaHora' => now(),
             'idUsuario' => 3,
         ]);
 
         DB::table('post')->insert([
-            'titulo' => 'Resumen de la película los Tomates Asesinos',
-            'cuerpo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi. Etiam id nibh posuere mauris pretium sollicitudin nec nec enim. Integer laoreet pharetra arcu, et pretium massa consequat ut. ',
+            'titulo' => 'Resumen de la película El Ataque de los Tomates Asesinos',
+            'cuerpo' => 'El ataque de los tomates asesinos es una película de comedia de bajo presupuesto estrenada en el año 1978, dirigida y escrita por John de Bello en su debut con este largometraje basado en un corto homónimo. Para la realización de esta película se dispuso de un presupuesto de 90.000 dólares. Debido a la escasez presupuestaria, De Bello consiguió sacar adelante la película mediante la utilización de una serie de soluciones nada profesionales, motivo por el cual está considerada como una de las peores películas de la historia del cine norteamericano. https://es.wikipedia.org/wiki/El_ataque_de_los_tomates_asesinos',
             'fechaHora' => now(),
             'idUsuario' => 1,
         ]);
 
         DB::table('post')->insert([
             'titulo' => 'Como hacer barquitos de papel',
-            'cuerpo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi. Etiam id nibh posuere mauris pretium sollicitudin nec nec enim. Integer laoreet pharetra arcu, et pretium massa consequat ut. ',
+            'cuerpo' => 'Pasos: 1) Dobla el folio a la mitad, como en la imagen. 
+                2) Ponlo en posición horizontal y pliega los bordes hacia el centro haciendo un pentágono. 
+                3) Tomas los pliegues inferiores y dobla hacia arriba formando un sombrero de papel. 
+                4) Repite la doblez. Esta vez hazla con la parte inferior hasta que quede un triángulo con tres solapas. 
+                5) Abre las palas laterales estirando hacia los lados para obtener el barquito de papel. https://saposyprincesas.elmundo.es/ocio-en-casa/manualidades-para-ninos/como-hacer-un-barco-de-papel/',
             'fechaHora' => now(),
             'idUsuario' => 2,
         ]);
 
         DB::table('post')->insert([
             'titulo' => 'Programar me vuela la cabeza',
-            'cuerpo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi. Etiam id nibh posuere mauris pretium sollicitudin nec nec enim. Integer laoreet pharetra arcu, et pretium massa consequat ut. ',
+            'cuerpo' => 'Llevo como 5 días seguidos mirando videos, leyendo páginas web, a fin de realizar un blog simple en laravel, al momento tengo dos palillos en los ojos para que no se me cierren los mismos, a fin de poder escribir esta nota ;) Si lo tuviera que escribir de cero en PHP estaría una vida, gracias Google, te quiero. Hablando enserio Laravel está bueno, te hace todo, menos la comida, casi todo.',
             'fechaHora' => now(),
             'idUsuario' => 3,
         ]);
 
         DB::table('post')->insert([
             'titulo' => 'Tiroteo en el Villa los ñeris andan bravos',
-            'cuerpo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper odio quis lacus fermentum, id efficitur ipsum placerat. Etiam orci urna, tempor ut elit vitae, posuere pharetra eros. Vivamus enim lorem, ornare non iaculis eu, tempus sit amet urna. Sed eu massa vel enim vulputate fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rhoncus quam. Mauris sed consequat mi. Etiam id nibh posuere mauris pretium sollicitudin nec nec enim. Integer laoreet pharetra arcu, et pretium massa consequat ut. ',
+            'cuerpo' => 'Ya van como dos noches, que sin estar escuchando música con los auriculares, se escuchan el ruido potente de los fuegos artificiales. Ah no, son la metralletas del Villa Española, deben de estar festejando un cumpleaños, que suerte que tienen, y uno acá posteando en este blog trucho.',
             'fechaHora' => now(),
             'idUsuario' => 1,
         ]);
