@@ -17,10 +17,13 @@
             Integer laoreet pharetra arcu, et pretium massa consequat ut.
         </p>
         <p>
-            AUTOR
+            Creado por AUTOR
         </p>
         <p>
-            FECHA / HORA
+            Creado el FECHA / HORA
+        </p>
+        <p>
+            Última modificación el FECHA / HORA
         </p>
         <p>
             Puntuación: XX
@@ -57,10 +60,13 @@
             Integer laoreet pharetra arcu, et pretium massa consequat ut.
         </p>
         <p>
-            AUTOR
+            Creado por AUTOR
         </p>
         <p>
-            FECHA / HORA
+            Creado el FECHA / HORA
+        </p>
+        <p>
+            Última modificación el FECHA / HORA
         </p>
         <p>
             Puntuación: XX
@@ -97,10 +103,13 @@
             Integer laoreet pharetra arcu, et pretium massa consequat ut.
         </p>
         <p>
-            AUTOR
+            Creado por AUTOR
         </p>
         <p>
-            FECHA / HORA
+            Creado el FECHA / HORA
+        </p>
+        <p>
+            Última modificación el FECHA / HORA
         </p>
         <p>
             Puntuación: XX
