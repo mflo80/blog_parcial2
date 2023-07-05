@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('titulo', 50);
             $table->string('cuerpo', 1000);
             $table->timestamp('fechaHora');
+            $table->unsignedBigInteger('idUsuario');
+            $table->foreign('idUsuario')->references('id')->on('users');
             $table->softDeletes();
         });
     }

@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('historial', function (Blueprint $table) {
-            $table->bigIncrements('idHistorial');
+            $table->bigIncrements('id');
             $table->timestamp('fechaHoraCambio');
-            $table->unsignedBigInteger('idPost')->nullable();
-            $table->foreign('idPost')->references('idPost')->on('usuarioRealizaPost');
+            $table->unsignedBigInteger('idPost');
+            $table->unsignedBigInteger('idUsuario');
+            $table->foreign('idPost')->references('id')->on('post');
+            $table->foreign('idUsuario')->references('id')->on('users');
             $table->softDeletes();
         });
     }
