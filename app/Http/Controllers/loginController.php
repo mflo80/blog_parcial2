@@ -12,7 +12,7 @@ class LoginController extends Controller
         return view('login');
     }
     
-    public function Almacenar(Request $request): RedirectResponse
+    public function Validar(Request $request): RedirectResponse
     {
         if (auth()->attempt(request(['email', 'password'])) == false) {
             return back()->withErrors([

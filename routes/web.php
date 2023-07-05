@@ -19,14 +19,13 @@ use App\Http\Controllers\LogoutController;
 */
 
     Route::view('/', "index")->name('index');
-    Route::view('/home', "blog")->name('blog');
     Route::view('/blog', "blog")->name('blog');
     Route::view('/sblog', "sblog")->middleware('auth')->name('sblog');
 
     Route::get('login', [LoginController::class, 'Crear'])->name('login');
-    Route::post('login', [LoginController::class, 'Almacenar']);
+    Route::post('login', [LoginController::class, 'Validar']);
 
     Route::get('registro', [RegistroController::class, 'Crear'])->name('registro');
-    Route::post('registro', [RegistroController::class, 'Validar']);
+    Route::post('registro', [RegistroController::class, 'Almacenar']);
 
     Route::get('logout', [LogoutController::class, 'Salir']);

@@ -12,14 +12,8 @@ class RegistroController extends Controller
         return view('registro');
     }
 
-    public function Validar(Request $request)
+    public function Almacenar(Request $request)
     {  
-        /*$this->validate(request(), [
-            'name' => 'required|unique:users',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed'
-        ]);*/
-           
         $request->validate([
             'name' => ['required', 'string', 'max:30', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -32,8 +26,6 @@ class RegistroController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-        //User::create(request(['name', 'email', 'password']));
                 
         Auth()->logout();
                   
@@ -42,8 +34,4 @@ class RegistroController extends Controller
         
         return redirect()->to('login')->with('sucess', 'El registro se ha completado correctamente, debe iniciar sessión para continuar...');
      }
-
-    public function Almacenar(Request $request){
-
-    }
 }

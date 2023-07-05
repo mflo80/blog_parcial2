@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('idUsuario');
             $table->unsignedBigInteger('idPost');
             $table->enum('puntuacion', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-            $table->timestamp('fecha');
+            $table->date('fecha');
             $table->foreign('idUsuario')->references('id')->on('users');
             $table->foreign('idPost')->references('id')->on('post');
             $table->primary(['idUsuario', 'idPost']);
