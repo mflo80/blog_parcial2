@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistroController extends Controller
 {
-    public function Crear() {
+    public function Index() {
         return view('registro');
     }
 
@@ -32,6 +32,6 @@ class RegistroController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         
-        return redirect()->to('login')->with('sucess', 'El registro se ha completado correctamente, debe iniciar sessión para continuar...');
+        return redirect()->to('login')->with('registro_correcto', 'El registro se ha completado correctamente, debe iniciar sessión para continuar...');
      }
 }

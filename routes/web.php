@@ -1,14 +1,11 @@
 <?php
 
-//use App\Http\Controllers\blogController;
 
-use App\Http\Controllers\ConsultasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +21,12 @@ use App\Http\Controllers\UsuarioController;
     Route::view('/', "index")->name('index');
     Route::view('/sblog', "sblog")->name('sblog');
 
-    Route::get('login', [LoginController::class, 'Crear'])->name('login');
+    Route::get('login', [LoginController::class, 'Index']);
     Route::post('login', [LoginController::class, 'Validar']);
 
-    Route::get('registro', [RegistroController::class, 'Crear'])->name('registro');
+    Route::get('registro', [RegistroController::class, 'Index']);
     Route::post('registro', [RegistroController::class, 'Almacenar']);
 
     Route::get('logout', [LogoutController::class, 'Salir']);
 
-    Route::get('sblog', [PostController::class, 'BuscarPosts'])->name('BuscarPosts');
+    Route::get('sblog', [BlogController::class, 'BuscarPost']);

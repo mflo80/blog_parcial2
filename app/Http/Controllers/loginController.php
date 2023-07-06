@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 class LoginController extends Controller
 {
 
-    public function Crear(){
+    public function Index(){
         return view('login');
     }
     

@@ -12,14 +12,14 @@
         <div class="container">
             <h3>Inicio de Sesión</h3>
             <div class="form">
-                <form action="/login" method="post">
+                <form action="login" method="post">
                     {{ csrf_field() }}
                     <div class="table">
                         <table>
                             <tr>
                                 <td>
                                     <label for="email">Email:</label>
-                                    <input type="text" name="email" size="35" required>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" size="35" required autocomplete="email" autofocus>
                                 </td> 
                             </tr>
                             <tr>
@@ -54,13 +54,24 @@
             <br>
                 <hr size="1px" color="black">
             <br>
-
+  
             @error('message')
-                {{ $message }}
+                <strong>
+                    {{ $message }}
+                </strong>
                 <br><br>
                     <hr size="1px" color="black">
                 <br>
             @enderror
+
+            @if (session('registro_correcto'))
+                <strong>
+                    {{ session()->get('registro_correcto') }}
+                </strong>
+                <br><br>
+                    <hr size="1px" color="black">
+                <br>
+            @endif
 
             <a href="sblog">Página Principal</a></p>
         </div>

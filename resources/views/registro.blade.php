@@ -13,7 +13,7 @@
             <h3>Registro de Usuario</h3>
             
             <div class="form">
-                <form action="/registro" method="post">
+                <form action="registro" method="post">
                     {{ csrf_field() }}
                     <div class="table">
                         <table>
@@ -21,12 +21,6 @@
                                 <td>
                                     <label for="name">Nombre de usuario:</label>
                                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                    
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ 'El usuario ya existe, ingrese otro por favor.' }}</strong>
-                                        </span>
-                                    @enderror
                                 </td>
                             </tr>
 
@@ -38,12 +32,6 @@
                                 <td>
                                     <label for="email">Email:</label>
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" size="34" required autocomplete="email">
-                                    
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ 'El correo electrónico ingresado ya se encuentra registrado, ingrese otro por favor.' }}</strong>
-                                        </span>
-                                    @enderror
                                 </td>
                             </tr>
 
@@ -55,19 +43,6 @@
                                 <td>
                                     <label for="password">Contraseña:</label>
                                     <input id="password" type="password" class="form-control" name="password" size="29" required autocomplete="new-password">
-
-                                    @error('password')
-                                        @if($message=='The password field must be at least 4 characters.')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ 'La contraseña debe tener 4 o más caracteres.' }}</strong>
-                                            </span>
-                                        @endif
-                                        @if($message=='The password field confirmation does not match.')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ 'Las contraseñas no coinciden.' }}</strong>
-                                            </span>
-                                        @endif
-                                    @enderror
                                 </td>
                             </tr>
 
@@ -101,8 +76,42 @@
             </div>
 
             <br>
-            <hr size="1px" color="black">
+                <hr size="1px" color="black">
             <br>
+
+            @error('name')
+                <span>
+                    <strong>{{ 'El usuario ya existe, ingrese otro por favor.' }}</strong>
+                </span>
+                <br><br>
+                    <hr size="1px" color="black">
+                <br>
+            @enderror
+
+            @error('email')
+                <span>
+                    <strong>{{ 'El correo electrónico ingresado ya se encuentra registrado, ingrese otro por favor.' }}</strong>
+                </span>
+                <br><br>
+                    <hr size="1px" color="black">
+                <br>
+            @enderror
+
+            @error('password')
+                @if($message=='The password field must be at least 4 characters.')
+                    <span>
+                        <strong>{{ 'La contraseña debe tener 4 o más caracteres.' }}</strong>
+                    </span>
+                @endif
+                @if($message=='The password field confirmation does not match.')
+                    <span>
+                        <strong>{{ 'Las contraseñas no coinciden.' }}</strong>
+                    </span>
+                @endif
+                <br><br>
+                    <hr size="1px" color="black">
+                <br>
+            @enderror
 
             <a href="sblog">Página Principal</a></p>
         </div>

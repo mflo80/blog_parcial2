@@ -19,7 +19,7 @@
                         @endif
                         @if( auth()->check() )
                             <td>
-                                <a href="crearPost">Crear Post</a>
+                                <a href="crear-post">Crear Post</a>
                             </td>
                         @endif
                         @if( ! auth()->check() )

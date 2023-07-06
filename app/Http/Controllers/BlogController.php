@@ -6,9 +6,9 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
-class PostController extends Controller
+class BlogController extends Controller
 {
-    public function BuscarPosts(Request $request)
+    public function BuscarPost(Request $request)
     {
         $posts = Post::query()
             ->when(
@@ -22,6 +22,6 @@ class PostController extends Controller
             )
             ->simplePaginate(3);
 
-           return view('sblog', compact('posts'));
+            return view('sblog', compact('posts'));
     }
 }

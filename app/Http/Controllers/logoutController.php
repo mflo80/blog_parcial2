@@ -14,6 +14,5 @@ class LogoutController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->to('sblog');
-        //return redirect(route('blog'));
     }
 }

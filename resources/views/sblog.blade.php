@@ -12,15 +12,27 @@
                     {{ $post->cuerpo }}
                 </p>
                 <p>
-                    Autor: {{ strtolower(\App\Models\User::all()->where('id', '=', $post->idUsuario)->value('name')) }}
+                    Creado por {{ strtolower(\App\Models\User::all()->where('id', '=', $post->idUsuario)->value('name')) }}
                 </p>
                 <p>
-                    Creado: {{ date('d-M-Y H:m', strtotime($post->fechaHora)) }}
+                    Publicado: {{ date('d-M-Y H:m', strtotime($post->fechaHora)) }}
                 </p>
                 <p>
-                    Puntuación: {{ \App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') }}
+                    @if(\App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') > 0)
+                        @php
+                            $puntuacion = \App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion');
+                        @endphp
+                        Puntuación: {{ $puntuacion }}
+                    @endif
+
+                    @if(\App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') == null)
+                        Puntuación: no calificado
+                    @endif
                 </p>
         
+                <button>
+                    Ver Post
+                </button>
                 @if( auth()->check() )
                     @if($post->idUsuario != auth()->user()->id)
                         <button>
@@ -35,9 +47,9 @@
                             Eliminar
                         </button>
                     @endif
-                    
-                    <br><br>
                 @endif
+
+                <br><br>
                           
                 <hr size="1px" color="black">
             </div>
