@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,7 @@ use App\Http\Controllers\PostController;
 */
 
     Route::view('/', "index")->name('index');
-    Route::view('/blog', "blog")->name('blog');
-    Route::view('/sblog', "sblog")->middleware('auth')->name('sblog');
+    Route::view('/sblog', "sblog")->name('sblog');
 
     Route::get('login', [LoginController::class, 'Crear'])->name('login');
     Route::post('login', [LoginController::class, 'Validar']);
@@ -32,5 +32,4 @@ use App\Http\Controllers\PostController;
 
     Route::get('logout', [LogoutController::class, 'Salir']);
 
-    Route::get('/blog',[PostController::class, 'buscar'])->name('post');
-    Route::get('/sblog',[PostController::class, 'buscar'])->name('post');
+    Route::get('sblog', [PostController::class, 'BuscarPosts'])->name('BuscarPosts');

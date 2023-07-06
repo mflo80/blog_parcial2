@@ -8,39 +8,62 @@
 @extends('home')
 
 @section('content')
-    <h3>Inicio de Sesión</h3>
-
-    <form action="/login" method="post">
-        {{ csrf_field() }}
+    <center>
         <div class="container">
-            <label for="email">Correo Electrónico:</label>
-            <input type="text" name="email" required>
-            
-            <br><br>
-            
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" required>
+            <h3>Inicio de Sesión</h3>
+            <div class="form">
+                <form action="/login" method="post">
+                    {{ csrf_field() }}
+                    <div class="table">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="email">Email:</label>
+                                    <input type="text" name="email" size="35" required>
+                                </td> 
+                            </tr>
+                            <tr>
+                                <td class="divider"><br></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="password">Contraseña:</label style="margin-left: 30px;">
+                                    <input type="password" name="password" size="30" required>
+                                </td> 
+                            </tr>
+                            
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                            <tr>
+                                <td>
+                                    <p>¿No tienes cuenta en Simple Blog?
+                                    <a href="registro">Registrar</a></p>
+                                </td> 
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <center><button type="submit">Iniciar Sesión</button></center>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
 
-            <p>¿No tienes cuenta en Simple Blog?
-            <a href="registro">Registrar</a></p>
-            
-            <button type="submit">Iniciar Sesión</button>
+            <br>
+                <hr size="1px" color="black">
+            <br>
+
+            @error('message')
+                {{ $message }}
+                <br><br>
+                    <hr size="1px" color="black">
+                <br>
+            @enderror
+
+            <a href="sblog">Página Principal</a></p>
         </div>
-    </form>
-
-    <br>
-        <hr size="1px" color="black">
-    <br>
-    
-    @error('message')
-        {{ $message }}
-        <br><br>
-            <hr size="1px" color="black">
-        <br>
-    @enderror
-
-    <a href="blog">Página Principal</a></p>
+    </center>
 @endsection
 

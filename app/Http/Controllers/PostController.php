@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class PostController extends Controller
 {
-    public function buscar(Request $request)
+    public function BuscarPosts(Request $request)
     {
         $posts = Post::query()
             ->when(
@@ -22,10 +22,6 @@ class PostController extends Controller
             )
             ->simplePaginate(3);
 
-        if( auth()->check() ){
-            return view('sblog', compact('posts'));
-        } else {
-            return view('blog', compact('posts'));
-        }
+           return view('sblog', compact('posts'));
     }
 }

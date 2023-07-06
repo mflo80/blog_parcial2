@@ -5,20 +5,20 @@
     <div>
         @foreach($posts as $post)
             <div>
-                <h2>
+                <h3>
                     {{ $post->titulo }}
-                </h2>
+                </h3>
                 <p>
                     {{ $post->cuerpo }}
                 </p>
                 <p>
-                    Autor: {{ $post->idUsuario }}
+                    Autor: {{ strtolower(\App\Models\User::all()->where('id', '=', $post->idUsuario)->value('name')) }}
                 </p>
                 <p>
                     Creado: {{ date('d-M-Y H:m', strtotime($post->fechaHora)) }}
                 </p>
                 <p>
-                    Puntuación: XX
+                    Puntuación: {{ \App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') }}
                 </p>
         
                 @if( auth()->check() )
@@ -35,13 +35,15 @@
                             Eliminar
                         </button>
                     @endif
+                    
+                    <br><br>
                 @endif
-        
-                <br><br>  
+                          
                 <hr size="1px" color="black">
             </div>
         @endforeach
-        <center class="paginas">
+        
+        <center>
             {{  $posts->withQueryString()->links() }}
         </center>
     </div>

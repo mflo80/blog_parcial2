@@ -22,8 +22,8 @@ class RegistroController extends Controller
         ]);
 
         User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            strtolower('name') => $request->name,
+            strtolower('email') => $request->email,
             'password' => Hash::make($request->password),
         ]);
                 

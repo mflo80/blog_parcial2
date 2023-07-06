@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('post')->insert([
             'titulo' => 'Hola Mundo',
-            'cuerpo' => 'En informática, "Hola, mundo" o "Hello, World!", en inglés es un programa que muestra el texto «¡Hola, mundo!» en un dispositivo de visualización, en la mayoría de los casos la pantalla de un monitor. Este programa suele ser usado como introducción al estudio de un lenguaje de programación, siendo un primer ejercicio típico, y se considera fundamental desde el punto de vista didáctico. www.wikipedia.org https://es.wikipedia.org/wiki/Hola_mundo',
+            'cuerpo' => 'En informática, "Hola, mundo" o "Hello, World!", en inglés es un programa que muestra el texto «¡Hola, mundo!» en un dispositivo de visualización, en la mayoría de los casos la pantalla de un monitor. Este programa suele ser usado como introducción al estudio de un lenguaje de programación, siendo un primer ejercicio típico, y se considera fundamental desde el punto de vista didáctico. https://es.wikipedia.org/wiki/Hola_mundo',
             'fechaHora' => now(),
             'idUsuario' => 1,
         ]);
@@ -51,14 +51,14 @@ class DatabaseSeeder extends Seeder
             'titulo' => 'Guerra de Pedos 2023',
             'cuerpo' => 'En Montevideo capital de la República Oriental del Uruguay, se llevó a cabo un inédito torneo (Guerra de Pedos), el gordo Juan Pérez logró obtener el primer título, al dejar desmayado a casi todo el público, incluídos los jueces.',
             'fechaHora' => now(),
-            'idUsuario' => 3,
+            'idUsuario' => 1,
         ]);
 
         DB::table('post')->insert([
             'titulo' => 'Resumen de la película El Ataque de los Tomates Asesinos',
             'cuerpo' => 'El ataque de los tomates asesinos es una película de comedia de bajo presupuesto estrenada en el año 1978, dirigida y escrita por John de Bello en su debut con este largometraje basado en un corto homónimo. Para la realización de esta película se dispuso de un presupuesto de 90.000 dólares. Debido a la escasez presupuestaria, De Bello consiguió sacar adelante la película mediante la utilización de una serie de soluciones nada profesionales, motivo por el cual está considerada como una de las peores películas de la historia del cine norteamericano. https://es.wikipedia.org/wiki/El_ataque_de_los_tomates_asesinos',
             'fechaHora' => now(),
-            'idUsuario' => 1,
+            'idUsuario' => 3,
         ]);
 
         DB::table('post')->insert([
@@ -76,14 +76,14 @@ class DatabaseSeeder extends Seeder
             'titulo' => 'Programar me vuela la cabeza',
             'cuerpo' => 'Llevo como 5 días seguidos mirando videos, leyendo páginas web, a fin de realizar un blog simple en laravel, al momento tengo dos palillos en los ojos para que no se me cierren los mismos, a fin de poder escribir esta nota ;) Si lo tuviera que escribir de cero en PHP estaría una vida, gracias Google, te quiero. Hablando enserio Laravel está bueno, te hace todo, menos la comida, casi todo.',
             'fechaHora' => now(),
-            'idUsuario' => 3,
+            'idUsuario' => 1,
         ]);
 
         DB::table('post')->insert([
             'titulo' => 'Tiroteo en el Villa los ñeris andan bravos',
             'cuerpo' => 'Ya van como dos noches, que sin estar escuchando música con los auriculares, se escuchan el ruido potente de los fuegos artificiales. Ah no, son la metralletas del Villa Española, deben de estar festejando un cumpleaños, que suerte que tienen, y uno acá posteando en este blog trucho.',
             'fechaHora' => now(),
-            'idUsuario' => 1,
+            'idUsuario' => 3,
         ]);
 
         DB::table('publicidad')->insert([
@@ -121,6 +121,20 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('usuarioCalificaPost')->insert([
+            'idUsuario' => 2,
+            'idPost' => 1,
+            'puntuacion' => 7,
+            'fecha' => now(),
+        ]);
+
+        DB::table('usuarioCalificaPost')->insert([
+            'idUsuario' => 1,
+            'idPost' => 2,
+            'puntuacion' => 9,
+            'fecha' => now(),
+        ]);
+
+        DB::table('usuarioCalificaPost')->insert([
             'idUsuario' => 3,
             'idPost' => 2,
             'puntuacion' => 10,
@@ -128,9 +142,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('usuarioCalificaPost')->insert([
-            'idUsuario' => 1,
+            'idUsuario' => 3,
             'idPost' => 3,
-            'puntuacion' => 9,
+            'puntuacion' => 1,
+            'fecha' => now(),
+        ]);
+
+        DB::table('usuarioCalificaPost')->insert([
+            'idUsuario' => 2,
+            'idPost' => 3,
+            'puntuacion' => 5,
             'fecha' => now(),
         ]);
 
