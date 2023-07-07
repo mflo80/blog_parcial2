@@ -12,7 +12,7 @@
         <div class="container">
             <h3>Inicio de Sesión</h3>
             <div class="form">
-                <form action="login" method="post">
+                <form action="sblog-login" method="post">
                     {{ csrf_field() }}
                     <div class="table">
                         <table>
@@ -37,7 +37,7 @@
                             <tr>
                                 <td>
                                     <p>¿No tienes cuenta en Simple Blog?
-                                    <a href="registro">Registrar</a></p>
+                                    <a href="sblog-registro">Registrar</a></p>
                                 </td> 
                             </tr>
                             

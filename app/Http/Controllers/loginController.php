@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
 
     public function Index(){
-        return view('login');
+        return view('sblog-login');
     }
     
     public function Validar(Request $request): RedirectResponse

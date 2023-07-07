@@ -13,7 +13,7 @@
             <h3>Registro de Usuario</h3>
             
             <div class="form">
-                <form action="registro" method="post">
+                <form action="sblog-registro" method="post">
                     {{ csrf_field() }}
                     <div class="table">
                         <table>

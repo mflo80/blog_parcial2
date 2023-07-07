@@ -30,9 +30,7 @@
                     @endif
                 </p>
         
-                <button>
-                    Ver Post
-                </button>
+                <a href="sblog-post-{{$post->id}}">Ver Post</a>
                 @if( auth()->check() )
                     @if($post->idUsuario != auth()->user()->id)
                         <button>

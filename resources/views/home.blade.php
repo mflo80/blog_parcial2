@@ -14,31 +14,26 @@
                     <tr>
                         @if( auth()->check() )
                             <td>
-                                Bienvenido {{ strtolower(auth()->user()->name) }} ---
+                                <a href="sblog-crear">Crear Post</a>
                             </td>
-                        @endif
-                        @if( auth()->check() )
                             <td>
-                                <a href="crear-post">Crear Post</a>
+                                --- {{ strtolower(auth()->user()->name) }} ---
                             </td>
                         @endif
                         @if( ! auth()->check() )
                             <td>
-                                <a href="login">Iniciar Sesión</a>
+                                <a href="sblog-login">Iniciar Sesión</a>
                             </td>
                             <td>
                                 ---
                             </td>
                             <td>
-                                <a href="registro">Registro</a>
+                                <a href="sblog-registro">Registro</a>
                             </td>
                         @endif
                         @if( auth()->check() )
                             <td>
-                                ---
-                            </td>
-                            <td>
-                                <a href="logout">Cerrar Sesión</a>
+                                <a href="sblog-logout">Cerrar Sesión</a>
                             </td>
                         @endif
                     </tr>

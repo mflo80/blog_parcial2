@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Hash;
 class RegistroController extends Controller
 {
     public function Index() {
-        return view('registro');
+        return view('sblog-registro');
     }
 
-    public function Almacenar(Request $request)
+    public function Store(Request $request)
     {  
         $request->validate([
             'name' => ['required', 'string', 'max:30', 'unique:users'],
@@ -32,6 +32,6 @@ class RegistroController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         
-        return redirect()->to('login')->with('registro_correcto', 'El registro se ha completado correctamente, debe iniciar sessión para continuar...');
+        return redirect()->to('sblog-login')->with('registro_correcto', 'El registro se ha completado correctamente, debe iniciar sessión para continuar...');
      }
 }
