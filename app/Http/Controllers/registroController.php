@@ -32,6 +32,6 @@ class RegistroController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         
-        return redirect()->to('sblog-login')->with('registro_correcto', 'El registro se ha completado correctamente, debe iniciar sessión para continuar...');
+        return redirect()->to('sblog-login')->with('registro_correcto', 'El registro se ha completado correctamente, debe iniciar sesión para continuar...');
      }
 }

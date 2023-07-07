@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('postMuestraPublicidad', function (Blueprint $table) {
+        Schema::create('post_muestra_publicidad', function (Blueprint $table) {
             $table->unsignedBigInteger('idPost');
             $table->unsignedBigInteger('idPublicidad');
             $table->foreign('idPost')->references('id')->on('post');
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('postMuestraPublicidad');    
+        Schema::dropIfExists('post_muestra_publicidad');    
     }
 };

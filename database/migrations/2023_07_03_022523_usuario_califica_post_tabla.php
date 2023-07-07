@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarioCalificaPost', function (Blueprint $table) {
+        Schema::create('usuario_califica_post', function (Blueprint $table) {
             $table->unsignedBigInteger('idUsuario');
             $table->unsignedBigInteger('idPost');
             $table->enum('puntuacion', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarioCalificaPost');    
+        Schema::dropIfExists('usuario_califica_post');    
     }
 };

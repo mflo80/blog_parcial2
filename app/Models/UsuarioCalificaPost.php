@@ -9,7 +9,7 @@ class UsuarioCalificaPost extends Model
 {
     use HasFactory;
 
-    protected $table = 'usuarioCalificaPost';
+    protected $table = 'usuario_califica_post';
     public $timestamps = false;
 
     protected $fillable = [

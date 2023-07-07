@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('post')->insert([
             'titulo' => 'Guerra de Pedos 2023',
-            'cuerpo' => 'En Montevideo capital de la República Oriental del Uruguay, se llevó a cabo un inédito torneo (Guerra de Pedos), el gordo Juan Pérez logró obtener el primer título, al dejar desmayado a casi todo el público, incluídos los jueces.',
+            'cuerpo' => 'En Montevideo capital de la República Oriental del Uruguay, se llevó a cabo un inédito torneo (Guerra de Pedos), el gordo Juan Pérez logró obtener el primer título, al dejar desmayado a casi todo el público, incluído los jueces. Es de destacar que Juan es uno de los usuarios de honor de este blog, por lo que se le envía las felicitaciones por parte de Simple Blog por el título obtenido',
             'fechaHora' => now(),
             'idUsuario' => 1,
         ]);
@@ -98,57 +98,57 @@ class DatabaseSeeder extends Seeder
             'fechaExpiracion' => '2023-12-31',
         ]);
 
-        DB::table('postMuestraPublicidad')->insert([
+        DB::table('post_muestra_publicidad')->insert([
             'idPost' => 1,
             'idPublicidad' => 1,
         ]);
 
-        DB::table('postMuestraPublicidad')->insert([
+        DB::table('post_muestra_publicidad')->insert([
             'idPost' => 1,
             'idPublicidad' => 2,
         ]);
 
-        DB::table('postMuestraPublicidad')->insert([
+        DB::table('post_muestra_publicidad')->insert([
             'idPost' => 3,
             'idPublicidad' => 2,
         ]);
 
-        DB::table('usuarioCalificaPost')->insert([
+        DB::table('usuario_califica_post')->insert([
             'idUsuario' => 3,
             'idPost' => 1,
             'puntuacion' => 8,
             'fecha' => now(),
         ]);
 
-        DB::table('usuarioCalificaPost')->insert([
+        DB::table('usuario_califica_post')->insert([
             'idUsuario' => 2,
             'idPost' => 1,
             'puntuacion' => 7,
             'fecha' => now(),
         ]);
 
-        DB::table('usuarioCalificaPost')->insert([
+        DB::table('usuario_califica_post')->insert([
             'idUsuario' => 1,
             'idPost' => 2,
             'puntuacion' => 9,
             'fecha' => now(),
         ]);
 
-        DB::table('usuarioCalificaPost')->insert([
+        DB::table('usuario_califica_post')->insert([
             'idUsuario' => 3,
             'idPost' => 2,
             'puntuacion' => 10,
             'fecha' => now(),
         ]);
 
-        DB::table('usuarioCalificaPost')->insert([
+        DB::table('usuario_califica_post')->insert([
             'idUsuario' => 3,
             'idPost' => 3,
             'puntuacion' => 1,
             'fecha' => now(),
         ]);
 
-        DB::table('usuarioCalificaPost')->insert([
+        DB::table('usuario_califica_post')->insert([
             'idUsuario' => 2,
             'idPost' => 3,
             'puntuacion' => 5,

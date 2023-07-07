@@ -5,7 +5,7 @@
     }
 ?>
 
-@extends('home')
+@extends('template')
 
 @section('content')
     <center>
