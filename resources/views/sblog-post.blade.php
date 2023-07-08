@@ -38,10 +38,10 @@
                 @endif
                 @if($post->idUsuario == auth()->user()->id)
                     <button>
-                        Modificar
+                        <a href="sblog-editar-{{$post->id}}" style="text-decoration:none">Editar</a>
                     </button>
                     <button>
-                        Eliminar
+                        <a href="sblog-eliminar-{{$post->id}}" style="text-decoration:none" onclick="return EliminarPost('Eliminar Post')">Eliminar</a>
                     </button>
                 @endif
                 <br><br>
@@ -53,6 +53,12 @@
         <center>
             <a href="javascript:history.back()">Página anterior</a></p>
         </center>
+
+        <script>
+            function EliminarPost(value) {
+                action = confirm(value) ? true : event.preventDefault()
+            }
+        </script>
     </div>
 
 @endsection

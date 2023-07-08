@@ -1,9 +1,7 @@
-<?php
-    if( auth()->check() ){
-        header("Location: sblog");
-        exit();
-    }
-?>
+@if( auth()->check() )
+    {{ header("Location: sblog") }}
+    {{ exit() }}
+@endif
 
 @extends('template')
 

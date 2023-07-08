@@ -47,10 +47,11 @@
                     @endif
                     @if($post->idUsuario == auth()->user()->id)
                         <button>
-                            <a href="sblog-modificar-{{$post->id}}" style="text-decoration:none">Modificar</a>
+                            <a href="sblog-editar-{{$post->id}}" style="text-decoration:none">Editar</a>
                         </button>
+
                         <button>
-                            <a href="sblog-eliminar-{{$post->id}}" style="text-decoration:none">Eliminar</a>
+                            <a href="sblog-eliminar-{{$post->id}}" style="text-decoration:none" onclick="return EliminarPost('Eliminar Post')">Eliminar</a>
                         </button>
                     @endif
                 @endif
@@ -65,6 +66,12 @@
         <center>
             {{  $posts->withQueryString()->links() }}
         </center>
+
+        <script>
+            function EliminarPost(value) {
+                action = confirm(value) ? true : event.preventDefault()
+            }
+        </script>
     </div>
 
 @endsection

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class PostController extends Controller
 {
@@ -84,7 +86,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->fill($request->all());
         $post->save();
-        return redirect()->action([PostController::class, 'index']);
+        return redirect()->action([PostController::class, 'Index']);
     }
 
     /**
@@ -93,7 +95,9 @@ class PostController extends Controller
     public function Destroy($id)
     {
         $post = Post::find($id);
-        $post->delete();
-        return redirect()->action([PostController::class, 'index']);
+        //if($post->idUsuario == auth()->user()->id){
+            $post->delete();
+        //}
+        return redirect()->action([PostController::class, 'Index']);
     }
 }

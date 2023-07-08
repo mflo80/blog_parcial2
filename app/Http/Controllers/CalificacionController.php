@@ -65,7 +65,7 @@ class CalificacionController extends Controller
     public function Edit($id)
     {
         $post = $this->usuario_califica_post->obtenerPostPorId($id);
-        return view('sblog-editar', ['post' => $post]);
+        return view('sblog-modificar', ['post' => $post]);
     }
 
     /**
