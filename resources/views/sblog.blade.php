@@ -15,7 +15,7 @@
                 </p>
 
                 <p>
-                    Creado por {{ strtolower(\App\Models\User::all()->where('id', '=', $post->idUsuario)->value('name')) }} 
+                    Creado por {{ strtolower(\App\Models\User::all()->where('id', '=', $post->idUsuario)->value('name')) }}
                 </p>
                 
                 <p>

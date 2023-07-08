@@ -10,7 +10,6 @@ class Post extends Model
     use HasFactory;
 
     protected $table = 'post';
-    protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
         'titulo',

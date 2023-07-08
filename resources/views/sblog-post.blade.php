@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div>
+   <div>
         <div>
             <h3>
                 {{ $post->titulo }}
@@ -46,7 +46,7 @@
                 @endif
                 <br><br>
             @endif
-                    
+                   
             <hr size="1px" color="black">
         </div>
             

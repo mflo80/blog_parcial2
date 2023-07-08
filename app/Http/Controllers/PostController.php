@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
+use App\Models\UsuarioCalificaPost;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -22,7 +24,6 @@ class PostController extends Controller
     public function Index(Request $request)
     {
         $posts = Post::query()
-            ->orderBy('id','DESC')
             ->when(
                 $request->q,
                 function (Builder $builder) use ($request) {
@@ -32,9 +33,10 @@ class PostController extends Controller
                         ->orWhere('fechaHora', 'like', "%{$request->q}%");
                 }
             )
-            ->simplePaginate(3);
+            ->orderBy('post.id','DESC')
+                        ->simplePaginate(3);
 
-            return view('sblog', compact('posts'));
+        return view('sblog', compact('posts'));
     }
 
     /**
@@ -118,6 +120,9 @@ class PostController extends Controller
         if($post->idUsuario != auth()->user()->id){
             return view('sblog-post', ['post' => $post]);
         }
+        DB::table('post_muestra_publicidad')->where('idPost', $post->id)->delete();
+        DB::table('usuario_califica_post')->where('idPost', $post->id)->delete();
+        DB::table('historial')->where('idPost', $post->id)->delete();
         $post->delete();
         return redirect()->action([PostController::class, 'Index'])->with('success','Post eliminado...');
     }
