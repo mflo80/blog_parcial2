@@ -9,6 +9,9 @@ class LoginController extends Controller
 {
 
     public function Index(){
+        if( auth()->check() ) {
+            return redirect()->to('sblog'); 
+        }
         return view('sblog-login');
     }
     

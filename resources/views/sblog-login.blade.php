@@ -1,8 +1,3 @@
-@if( auth()->check() )
-    {{ header("Location: sblog") }}
-    {{ exit() }}
-@endif
-
 @extends('template')
 
 @section('content')

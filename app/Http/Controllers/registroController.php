@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 class RegistroController extends Controller
 {
     public function Index() {
+        if( auth()->check() ) {
+            return redirect()->to('sblog'); 
+        }
         return view('sblog-registro');
     }
 

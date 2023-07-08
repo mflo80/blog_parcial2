@@ -89,6 +89,9 @@ class PostController extends Controller
         if(is_null($post)){
             abort(404);
         }
+        if($post->idUsuario != auth()->user()->id){
+            return view('sblog-post', ['post' => $post]);
+        }
         return view('sblog-editar', compact('post'));
     }
     
