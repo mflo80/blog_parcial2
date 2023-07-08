@@ -17,6 +17,7 @@ class PostController extends Controller
     public function __construct(Post $post){
         $this->post = $post;
     }
+    
     public function Index(Request $request)
     {
         $posts = Post::query()
@@ -26,8 +27,8 @@ class PostController extends Controller
                 function (Builder $builder) use ($request) {
                     $builder->where('titulo', 'like', "%{$request->q}%")
                         ->orWhere('cuerpo', 'like', "%{$request->q}%")
-                        ->orWhere('fechaHora', 'like', "%{$request->q}%")
-                        ->orWhere('idUsuario', 'like', "%{$request->q}%");
+                        ->orWhere('idUsuario', 'like', "%{$request->q}%")
+                        ->orWhere('fechaHora', 'like', "%{$request->q}%");
                 }
             )
             ->simplePaginate(3);
@@ -48,9 +49,13 @@ class PostController extends Controller
      */
     public function Store(Request $request)
     {
-        $post = new Post($request->all());
+        $post = new Post();
+        $post->titulo = $request->titulo;
+        $post->cuerpo = $request->cuerpo;
+        $post->idUsuario = $request->idUsuario;
+        $post->fechaHora = now();
         $post->save();
-        return redirect()->action([PostController::class, 'index']);
+        return redirect()->action([PostController::class, 'Index']);
     }
 
     /**

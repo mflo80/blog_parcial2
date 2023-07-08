@@ -14,14 +14,15 @@
                 Creado por {{ strtolower(\App\Models\User::all()->where('id', '=', $post->idUsuario)->value('name')) }}
             </p>
             <p>
-                Publicado: {{ date('d-M-Y H:m', strtotime($post->fechaHora)) }}
+                Publicado: {{ $post->fechaHora }}
             </p>
             <p>
                 @if(\App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') > 0)
-                @php
-                    $puntuacion = \App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion');
-                @endphp
-                Puntuación: {{ $puntuacion }}
+                    @php
+                        $puntuacion = \App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion');
+                    @endphp
+                    
+                    Puntuación: {{ $puntuacion }}
                 @endif
 
                 @if(\App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') == null)

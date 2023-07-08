@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo', 200);
+            $table->string('titulo', 100);
             $table->string('cuerpo', 2000);
-            $table->timestamp('fechaHora');
+            $table->datetime('fechaHora');
             $table->unsignedBigInteger('idUsuario');
             $table->foreign('idUsuario')->references('id')->on('users');
             $table->softDeletes();

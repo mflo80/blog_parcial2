@@ -112,8 +112,7 @@
                     <hr size="1px" color="black">
                 <br>
             @enderror
-
-            <a href="sblog">Página Principal</a></p>
+            
         </div>
     </center>
 @endsection

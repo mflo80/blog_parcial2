@@ -11,12 +11,12 @@ class Post extends Model
 
     protected $table = 'post';
     protected $primaryKey = 'id';
-   // public $timestamps = false;
+    public $timestamps = false;
     protected $fillable = [
         'titulo',
         'cuerpo',
-        'fechaHora',
-        'idUsuario'
+        'idUsuario',
+        'fechaHora'
     ];
 
     public function obtenerPost()

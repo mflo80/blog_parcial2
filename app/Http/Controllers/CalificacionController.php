@@ -47,7 +47,7 @@ class CalificacionController extends Controller
     {
         $calificacion = new UsuarioCalificaPost($request->all());
         $calificacion->save();
-        return redirect()->action([PostController::class, 'index']);
+        return redirect()->action([PostController::class, 'Index']);
     }
 
     /**
@@ -76,7 +76,7 @@ class CalificacionController extends Controller
         $post = UsuarioCalificaPost::find($id);
         $post->fill($request->all());
         $post->save();
-        return redirect()->action([PostController::class, 'index']);
+        return redirect()->action([PostController::class, 'Index']);
     }
 
     /**
@@ -86,6 +86,6 @@ class CalificacionController extends Controller
     {
         $post = UsuarioCalificaPost::find($id);
         $post->delete();
-        return redirect()->action([PostController::class, 'index']);
+        return redirect()->action([PostController::class, 'Index']);
     }
 }

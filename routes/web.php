@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CrearPostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
@@ -19,17 +19,26 @@ use App\Http\Controllers\PostController;
 */
 
     Route::view('/', "index")->name('index');
-    Route::get('/sblog', [PostController::class, 'Index']);
 
-    Route::get('sblog-login', [LoginController::class, 'Index']);
-    Route::post('sblog-login', [LoginController::class, 'Validar']);
+    Route::controller(PostController::class)->group(function () {
+        Route::get('sblog', 'Index');
+        Route::get('sblog-post-{id}', 'Show');
+        Route::get('sblog-crear', 'Create');
+        Route::post('sblog-crear', 'Store');
+    });
 
-    Route::get('sblog-registro', [RegistroController::class, 'Index']);
-    Route::post('sblog-registro', [RegistroController::class, 'Store']);
+    Route::controller(LoginController::class)->group(function () {
+        Route::get('sblog-login', 'Index');
+        Route::post('sblog-login', 'Validar');
+    });
+
+    Route::controller(RegistroController::class)->group(function () {
+        Route::get('sblog-registro', 'Index');
+        Route::post('sblog-registro', 'Store');
+    });
 
     Route::get('sblog-logout', [LogoutController::class, 'Salir']);
 
-    Route::get('sblog-post-{id}', [PostController::class, 'Show']);
 
-    /*Route::get('sblog', [BlogController::class, 'BuscarPosts']);
-    Route::get('post', [PostController::class, 'BuscarPost']);*/
+
+    

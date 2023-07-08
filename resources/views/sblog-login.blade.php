@@ -73,7 +73,6 @@
                 <br>
             @endif
 
-            <a href="sblog">Página Principal</a></p>
         </div>
     </center>
 @endsection
