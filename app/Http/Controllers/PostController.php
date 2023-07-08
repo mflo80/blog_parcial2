@@ -6,7 +6,6 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 
 class PostController extends Controller
 {
@@ -63,10 +62,22 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function Show($id)
+    public function ShowPost($id)
     {
         $post = $this->post->obtenerPostPorId($id);
+        if(is_null($post)){
+            abort(404);
+        }
         return view('sblog-post', ['post' => $post]);
+    }
+
+    public function ShowEliminar($id)
+    {
+        $post = $this->post->obtenerPostPorId($id);
+        if(is_null($post)){
+            abort(404);
+        }
+        return view('sblog-eliminar', ['post' => $post]);
     }
 
     /**
@@ -75,9 +86,12 @@ class PostController extends Controller
     public function Edit($id)
     {
         $post = $this->post->obtenerPostPorId($id);
-        return view('sblog-editar', ['post' => $post]);
+        if(is_null($post)){
+            abort(404);
+        }
+        return view('sblog-editar', compact('post'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      */
@@ -95,9 +109,13 @@ class PostController extends Controller
     public function Destroy($id)
     {
         $post = Post::find($id);
-        //if($post->idUsuario == auth()->user()->id){
-            $post->delete();
-        //}
-        return redirect()->action([PostController::class, 'Index']);
+        if(is_null($post)){
+            abort(404);
+        }
+        if($post->idUsuario != auth()->user()->id){
+            return view('sblog-post', ['post' => $post]);
+        }
+        $post->delete();
+        return redirect()->action([PostController::class, 'Index'])->with('success','Post eliminado...');
     }
 }

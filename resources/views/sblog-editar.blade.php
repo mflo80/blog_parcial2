@@ -1,8 +1,3 @@
-@if($post->idUsuario != auth()->user()->id)
-    {{ header("Location: sblog") }}
-    {{ exit() }}
-@endif
-
 @extends('template')
 
 @section('content')

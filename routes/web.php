@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
@@ -21,7 +22,7 @@ use App\Http\Controllers\PostController;
 
     Route::controller(PostController::class)->group(function () {
         Route::get('sblog', 'Index')->name('sblow');
-        Route::get('sblog-post-{id}', 'Show')->name('post');
+        Route::get('sblog-post-{id}', 'ShowPost')->name('post');
         Route::get('sblog-crear', 'Create')->middleware('auth')->name('crear');
         Route::post('sblog-crear', 'Store');
         Route::get('sblog-editar-{id}', 'Edit')->middleware('auth')->name('editar');
