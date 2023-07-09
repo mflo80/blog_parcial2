@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('content')
+@section('sblog')
 
    <div>
         <div>

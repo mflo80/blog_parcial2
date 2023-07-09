@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('content')
+@section('sblog')
 
     <div>
         @foreach($posts as $post)
@@ -65,7 +65,13 @@
         
         <center>
             {{  $posts->withQueryString()->links() }}
-        </center>
+
+            <br>
+
+            
+
+         </center>
+
 
         <script>
             function EliminarPost(value) {

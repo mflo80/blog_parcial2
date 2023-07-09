@@ -47,6 +47,7 @@ class CalificacionController extends Controller
     {
         $calificacion = new UsuarioCalificaPost($request->all());
         $calificacion->save();
+        
         return redirect()->action([PostController::class, 'Index']);
     }
 
@@ -56,6 +57,7 @@ class CalificacionController extends Controller
     public function Show($id)
     {
         $calificacion = $this->usuario_califica_post->obtenerPostPorId($id);
+
         return view('sblog-post', ['post' => $calificacion]);
     }
 
@@ -65,6 +67,7 @@ class CalificacionController extends Controller
     public function Edit($id)
     {
         $post = $this->usuario_califica_post->obtenerPostPorId($id);
+
         return view('sblog-modificar', ['post' => $post]);
     }
 
@@ -76,6 +79,7 @@ class CalificacionController extends Controller
         $post = UsuarioCalificaPost::find($id);
         $post->fill($request->all());
         $post->save();
+
         return redirect()->action([PostController::class, 'Index']);
     }
 
@@ -86,6 +90,7 @@ class CalificacionController extends Controller
     {
         $post = UsuarioCalificaPost::find($id);
         $post->delete();
+
         return redirect()->action([PostController::class, 'Index']);
     }
 }

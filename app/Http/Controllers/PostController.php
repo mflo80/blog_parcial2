@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\User;
-use App\Models\UsuarioCalificaPost;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -34,7 +33,7 @@ class PostController extends Controller
                 }
             )
             ->orderBy('post.id','DESC')
-                        ->simplePaginate(3);
+            ->simplePaginate(3);
 
         return view('sblog', compact('posts'));
     }
@@ -58,6 +57,7 @@ class PostController extends Controller
         $post->idUsuario = $request->idUsuario;
         $post->fechaHora = now();
         $post->save();
+
         return redirect()->action([PostController::class, 'Index']);
     }
 
@@ -70,6 +70,7 @@ class PostController extends Controller
         if(is_null($post)){
             abort(404);
         }
+
         return view('sblog-post', ['post' => $post]);
     }
 
@@ -79,7 +80,18 @@ class PostController extends Controller
         if(is_null($post)){
             abort(404);
         }
+
         return view('sblog-eliminar', ['post' => $post]);
+    }
+
+    public function ShowPostPorMes()
+    {
+        //$meses = DB::table('post')
+        //    ->selectRaw("distinct monthname(fechaHora) as mes");
+
+        $meses = 'Enero';
+
+        return View::make('sblog-mes')->with('meses', $meses);
     }
 
     /**
@@ -88,12 +100,15 @@ class PostController extends Controller
     public function Edit($id)
     {
         $post = $this->post->obtenerPostPorId($id);
+        
         if(is_null($post)){
             abort(404);
         }
+        
         if($post->idUsuario != auth()->user()->id){
             return view('sblog-post', ['post' => $post]);
         }
+        
         return view('sblog-editar', compact('post'));
     }
     
@@ -105,6 +120,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->fill($request->all());
         $post->save();
+
         return redirect()->action([PostController::class, 'Index']);
     }
 
@@ -114,16 +130,20 @@ class PostController extends Controller
     public function Destroy($id)
     {
         $post = Post::find($id);
+        
         if(is_null($post)){
             abort(404);
         }
+        
         if($post->idUsuario != auth()->user()->id){
             return view('sblog-post', ['post' => $post]);
         }
+        
         DB::table('post_muestra_publicidad')->where('idPost', $post->id)->delete();
         DB::table('usuario_califica_post')->where('idPost', $post->id)->delete();
         DB::table('historial')->where('idPost', $post->id)->delete();
         $post->delete();
+
         return redirect()->action([PostController::class, 'Index'])->with('success','Post eliminado...');
     }
 }

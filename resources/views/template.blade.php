@@ -8,7 +8,7 @@
     <body>
         <center>
             <h1>S̲i̲m̲p̲l̲e̲ ̲B̲l̲o̲g̲</h1>
-            
+
             @if( auth()->check() )
                 <p>
                     «-« {{ strtolower(auth()->user()->name) }} »-»
@@ -56,7 +56,7 @@
             </div>
         </center>
 
-        @yield('content')
-    
+        @yield('sblogmes')
+        
     </body>
 </html>

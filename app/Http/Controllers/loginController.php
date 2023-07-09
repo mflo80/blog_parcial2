@@ -12,6 +12,7 @@ class LoginController extends Controller
         if( auth()->check() ) {
             return redirect()->to('sblog'); 
         }
+        
         return view('sblog-login');
     }
     

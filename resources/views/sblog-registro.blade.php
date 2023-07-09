@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('content')
+@section('sblog')
     <center>
         <div class="container">
             <h3>Registro de Usuario</h3>
