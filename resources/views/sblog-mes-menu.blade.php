@@ -28,9 +28,25 @@
                                 12 => "December"
                             );
 
+                            $mes_espaniol_array = array(
+                                "Enero" => "January",
+                                "Febrero" => "February",
+                                "Marzo" => "March",
+                                "Abril" => "April",
+                                "Mayo" => "May",
+                                "Junio" => "June",
+                                "Julio" => "July",
+                                "Agosto" => "August",
+                                "Setiembre" => "September",
+                                "Octubre" => "Octuber",
+                                "Noviembre" => "November",
+                                "Diciembre" => "December"
+                            );
+
                             $mes_numero = array_search($mes->mes, $mes_array, true);
+                            $mes_espaniol = array_search($mes->mes, $mes_espaniol_array, true);
                         @endphp
-                            <a href='sblog-mes-{{ $mes_numero }}'>{{ $mes->mes }}</a>
+                            <a href='sblog-mes-{{ $mes_numero }}'>{{ $mes_espaniol }}</a>
                     </td>
                 </th>
                 @endforeach

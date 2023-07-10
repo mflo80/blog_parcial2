@@ -22,7 +22,7 @@ class PostMuestraPublicidad extends Model
         return PostMuestraPublicidad::find($idPublicidad);
     }
 
-    public function obtenerPostPorId($idPost)
+    public static function obtenerPostPorId($idPost)
     {
         return PostMuestraPublicidad::find($idPost);
     }

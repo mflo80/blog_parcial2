@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('historial', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamp('fechaHoraCambio');
+            $table->datetime('fechaHoraCambio');
             $table->unsignedBigInteger('idPost');
             $table->unsignedBigInteger('idUsuario');
             $table->foreign('idPost')->references('id')->on('post');

@@ -22,7 +22,7 @@ class Publicidad extends Model
         return Publicidad::all();
     }
 
-    public function obtenerPublicidadPorId($id)
+    public static function obtenerPublicidadPorId($id)
     {
         return Publicidad::find($id);
     }

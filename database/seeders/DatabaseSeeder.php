@@ -98,21 +98,6 @@ class DatabaseSeeder extends Seeder
             'fechaExpiracion' => '2023-12-31',
         ]);
 
-        DB::table('post_muestra_publicidad')->insert([
-            'idPost' => 1,
-            'idPublicidad' => 1,
-        ]);
-
-        DB::table('post_muestra_publicidad')->insert([
-            'idPost' => 1,
-            'idPublicidad' => 2,
-        ]);
-
-        DB::table('post_muestra_publicidad')->insert([
-            'idPost' => 3,
-            'idPublicidad' => 2,
-        ]);
-
         DB::table('usuario_califica_post')->insert([
             'idUsuario' => 3,
             'idPost' => 1,
@@ -153,36 +138,6 @@ class DatabaseSeeder extends Seeder
             'idPost' => 3,
             'puntuacion' => 5,
             'fecha' => now(),
-        ]);
-
-        DB::table('historial')->insert([
-            'fechaHoraCambio' => now(),
-            'idPost' => 1,
-            'idUsuario' => 1,
-        ]);
-
-        DB::table('historial')->insert([
-            'fechaHoraCambio' => now(),
-            'idPost' => 1,
-            'idUsuario' => 1,
-        ]);
-
-        DB::table('historial')->insert([
-            'fechaHoraCambio' => now(),
-            'idPost' => 2,
-            'idUsuario' => 2,
-        ]);
-
-        DB::table('historial')->insert([
-            'fechaHoraCambio' => now(),
-            'idPost' => 3,
-            'idUsuario' => 3,
-        ]);
-
-        DB::table('historial')->insert([
-            'fechaHoraCambio' => now(),
-            'idPost' => 4,
-            'idUsuario' => 1,
         ]);
     }
 }

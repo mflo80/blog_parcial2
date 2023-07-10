@@ -1,3 +1,7 @@
+@php
+    use App\Http\Controllers\PublicidadController;
+@endphp
+
 @extends('template')
 
 @section('sblog')
@@ -33,12 +37,42 @@
                                 <td>
                                     <center>
                                         @if( auth()->check() )
-                                            <input id="idUsuario" type="hidden" class="form-control" name="idUsuario" value="{{ $idUsuario = auth()->user()->id }}" size="10">
+                                            <input id="idUsuario" type="hidden" class="form-control" name="idUsuario" value="{{ $idUsuario = auth()->user()->id }}">
                                         @endif
                                     </center>
                                 <td>
                             </tr>
+
+                            <tr>
+                                <td 
+                                    class="divider">
+                                </td>
+                            </tr>
                             
+                            @php
+                                $publicidad = PublicidadController::ShowPublicidad();
+                            @endphp
+
+                            <tr>
+                                <td>
+                                    Publicidad
+                                </td>
+                            </tr>
+                            
+                            @foreach ($publicidad as $publicidad)
+                                <tr>
+                                    <td>
+                                        <label> <input id="idPublicidad" type="radio" name="idPublicidad" value="{{ $publicidad->id }}"> {{ $publicidad->nombre }} -- Fecha Expiración: {{ $publicidad->fechaExpiracion }}</label>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                            <tr>
+                                <td>
+                                    <label> <input id="idPublicidad" type="radio" name="idPublicidad" value="null"> Sin Publicidad </label>
+                                </td>
+                            </tr>
+
                             <tr>
                                 <td 
                                     class="divider">

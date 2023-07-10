@@ -1,6 +1,8 @@
 @php
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\CalificacionController;
+    use App\Http\Controllers\HistorialController;
+    use App\Http\Controllers\PostMuestraPublicidadController;
 @endphp
 
 @extends('template')
@@ -27,6 +29,16 @@
                     <p>
                         Publicado: {{ $post->fechaHora }}
                     </p>
+
+                    <p>
+                        @php
+                            $ultimo_cambio = HistorialController::ShowUltimoCambio($post->id)
+                        @endphp
+
+                        @if(! $ultimo_cambio == null)
+                            Última modificación: {{ $ultimo_cambio }}
+                        @endif
+                    </p>
                     
                     <p>
                         @php 
@@ -39,6 +51,16 @@
 
                         @if($calificacion  == null)
                             Puntuación: no calificado
+                        @endif
+                    </p>
+
+                    <p>
+                        @php 
+                            $publicidad = PostMuestraPublicidadController::ShowPublicidadPorIdPost($post->id)
+                        @endphp
+                        
+                        @if(! $publicidad == null)
+                            Publicidad: {{ $publicidad->nombre }} ---» <a href=" {{ $publicidad->URL }} ">{{ $publicidad->URL }}</a>
                         @endif
                     </p>
 

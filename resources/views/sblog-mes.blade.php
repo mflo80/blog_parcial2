@@ -27,6 +27,16 @@
                     <p>
                         Publicado: {{ $post->fechaHora }}
                     </p>
+
+                    <p>
+                        @php
+                            $ultimo_cambio = HistorialController::ShowUltimoCambio($post->id)
+                        @endphp
+
+                        @if(! $ultimo_cambio == null)
+                            Última modificación: {{ $ultimo_cambio }}
+                        @endif
+                    </p>
                     
                     <p>
                         {{ $calificacion = CalificacionController::ShowCalificacionPromedio($post->id) }}

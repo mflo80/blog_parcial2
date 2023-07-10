@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Historial;
 use App\Models\Post;
+use App\Models\PostMuestraPublicidad;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
@@ -59,13 +61,24 @@ class PostController extends Controller
         $post->fechaHora = now();
         $post->save();
 
+        $idPost = DB::table('post')
+            ->selectRaw("last_insert_id() as id")
+            ->value('id');
+
+        if(! $request->idPublicidad == null){
+            $post_muestra_publicidad = new PostMuestraPublicidad();
+            $post_muestra_publicidad->idPost = $idPost;
+            $post_muestra_publicidad->idPublicidad = $request->idPublicidad;
+            $post_muestra_publicidad->save();
+        }
+
         return redirect()->action([PostController::class, 'Index']);
     }
 
     /**
      * Display the specified resource.
      */
-    public function ShowPost($id)
+        public function ShowPost($id)
     {
         $post = $this->post->obtenerPostPorId($id);
         if(is_null($post)){
@@ -94,7 +107,7 @@ class PostController extends Controller
     }
 
     public function ShowPostPorMes($id){
-        $posts = Post::query()
+        $posts = Post::query()  
             ->whereRaw("month(fechaHora) = $id")
             ->orderBy('post.id','DESC')
             ->simplePaginate(3);
@@ -103,6 +116,7 @@ class PostController extends Controller
 
         return view('sblog', compact(['posts', 'meses']));      
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -130,6 +144,23 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->fill($request->all());
         $post->save();
+
+        $historial = new Historial();
+        $historial->fechaHoraCambio = now();
+        $historial->idPost = $request->idPost;
+        $historial->idUsuario = $request->idUsuario;
+        $historial->save();
+
+        if($request->idPublicidadOld >= 1){
+            PostMuestraPublicidadController::Destroy($request->idPost);
+        }
+
+        if($request->idPublicidad >= 1) {
+            $PostMuestraPublicidad = new PostMuestraPublicidad();
+            $PostMuestraPublicidad->idPost = $request->idPost;
+            $PostMuestraPublicidad->idPublicidad = $request->idPublicidad;
+            $PostMuestraPublicidad->save(); 
+        }
 
         return redirect()->action([PostController::class, 'Index']);
     }
