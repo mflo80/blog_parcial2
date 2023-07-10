@@ -38,7 +38,9 @@
             </p>
 
             <p>
-                {{ $calificacion = CalificacionController::ShowCalificacionPromedio($post->id) }}
+                @php
+                    $calificacion = CalificacionController::ShowCalificacionPromedio($post->id)
+                @endphp
 
                 @if($calificacion  > 0)
                     Puntuación: {{ $calificacion  }}
@@ -83,37 +85,92 @@
 
                 <th>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="1">1</label>
+                        @if($calificacion == 1)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="1" checked='checked'>1</label>
+                        @endif
+                        @if($calificacion != 1)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="1">1</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="2">2</label>
+                        @if($calificacion == 2)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="2" checked='checked'>2</label>
+                        @endif
+                        @if($calificacion != 2)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="2">2</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="3">3</label>
+                        @if($calificacion == 3)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="3" checked='checked'>3</label>
+                        @endif
+                        @if($calificacion != 3)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="3">3</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="4">4</label>
+                        @if($calificacion == 4)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="4" checked='checked'>4</label>
+                        @endif
+                        @if($calificacion != 4)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="4">4</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="5">5</label>
+                        @if($calificacion == 5)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="5" checked='checked'>5</label>
+                        @endif
+                        @if($calificacion != 5)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="5">5</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="6">6</label>
+                        @if($calificacion == 6)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="6" checked='checked'>6</label>
+                        @endif
+                        @if($calificacion != 6)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="6">6</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="7">7</label>
+                        @if($calificacion == 7)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="7" checked='checked'>7</label>
+                        @endif
+                        @if($calificacion != 7)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="7">7</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="8">8</label>
+                        @if($calificacion == 8)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="8" checked='checked'>8</label>
+                        @endif
+                        @if($calificacion != 8)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="8">8</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="9">9</label>
+                        @if($calificacion == 9)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="9" checked='checked'>9</label>
+                        @endif
+                        @if($calificacion != 9)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="9">9</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="10">10</label>
+                        @if($calificacion == 10)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="10" checked='checked'>10</label>
+                        @endif
+                        @if($calificacion != 10)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="10">10</label>
+                        @endif
                     </td>
                     <td>
-                        <label><input id="puntuacion" type="radio" name="puntuacion" value="0">No Calificar</label>
+                        @if($calificacion == null)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="0" checked='checked'>No Calificar</label>
+                        @endif
+                        @if($calificacion != null)
+                            <label><input id="puntuacion" type="radio" name="puntuacion" value="0">No Calificar</label>
+                        @endif
                     </td>
                     <td>
                         <button type="submit">Enviar</button>

@@ -62,6 +62,11 @@ class CalificacionController extends Controller
 
     public function Store(Request $request)
     {
+        DB::table('usuario_califica_post')
+        ->where('idUsuario', auth()->user()->id)
+        ->where('idPost', $request->idPost)
+        ->delete();
+
         $califica = new UsuarioCalificaPost();
         $califica->idUsuario = $request->idUsuario;
         $califica->idPost = $request->idPost;
@@ -69,13 +74,16 @@ class CalificacionController extends Controller
         $califica->fecha = now();
         $califica->save();
 
-        return redirect()->action([PostController::class, 'ShowPostCalificar']);
+        return redirect()->action([PostController::class, 'Index'])->with('success','Post calificado...');
     }
 
     public function Update(Request $request, $idPost)
     {
         if($request->puntuacion == 0){
-            $this->Destroy($idPost);
+            DB::table('usuario_califica_post')
+                ->where('idUsuario', auth()->user()->id)
+                ->where('idPost', $idPost)
+                ->delete();
         }
 
         if($request->puntuacion >= 0) {

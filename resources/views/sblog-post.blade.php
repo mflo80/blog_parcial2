@@ -38,7 +38,9 @@
             </p>
 
             <p>
-                {{ $calificacion = CalificacionController::ShowCalificacionPromedio($post->id) }}
+                @php
+                    $calificacion = CalificacionController::ShowCalificacionPromedio($post->id)
+                @endphp
 
                 @if($calificacion  > 0)
                     Puntuación: {{ $calificacion  }}

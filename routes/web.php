@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalificacionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
@@ -31,7 +32,7 @@ use App\Http\Controllers\PostController;
         Route::get('sblog-eliminar-{id}', 'Destroy')->middleware('auth')->name('eliminar');
     });
 
-    Route::put('sblog-calificar-{id}', [CalificarController::class, 'Store']);
+    Route::put('sblog-calificar-{id}', [CalificacionController::class, 'Store']);
 
     Route::controller(LoginController::class)->group(function () {
         Route::get('sblog-login', 'Index')->name('login');

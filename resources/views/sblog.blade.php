@@ -100,6 +100,8 @@
 
             @include('sblog-mes-menu')
 
+            <br>
+
          </center>
 
 
