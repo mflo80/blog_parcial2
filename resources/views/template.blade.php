@@ -56,7 +56,7 @@
             </div>
         </center>
 
-        @yield('sblogmes')
+        @yield('sblog')
         
     </body>
 </html>

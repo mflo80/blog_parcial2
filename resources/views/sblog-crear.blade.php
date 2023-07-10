@@ -13,7 +13,7 @@
                             <tr>
                                 <td>
                                     <label for="titulo">Título:</label>
-                                    <input id="titulo" type="text" class="form-control" name="titulo" value="{{ old('titulo') }}" size="115" maxlength="100" required autocomplete="titulo" autofocus>
+                                    <input id="titulo" type="text" class="form-control" name="titulo" value="{{ old('titulo') }}" size="105" maxlength="100" required autocomplete="titulo" autofocus>
                                 </td>
                             </tr>
 
@@ -26,7 +26,7 @@
                             
                             <tr>
                                 <td>
-                                    <textarea name="cuerpo" value="{{ old('cuerpo') }}" rows="19" cols="108" maxlength="2000" autocomplete="cuerpo" style="resize:none" required></textarea>
+                                    <textarea name="cuerpo" value="{{ old('cuerpo') }}" rows="22" cols="113" maxlength="2000" autocomplete="cuerpo" style="resize:none" required></textarea>
                                 </td>
                             </tr>
                             <tr>

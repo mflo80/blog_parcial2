@@ -1,3 +1,8 @@
+@php
+    use App\Http\Controllers\UserController;
+    use App\Http\Controllers\CalificacionController;
+@endphp
+
 @extends('template')
 
 @section('sblog')
@@ -11,21 +16,19 @@
                 {{ $post->cuerpo }}
             </p>
             <p>
-                Creado por {{ strtolower(\App\Models\User::all()->where('id', '=', $post->idUsuario)->value('name')) }}
+                Creado por {{ UserController::ShowNombreUsuario($post->idUsuario) }}
             </p>
             <p>
                 Publicado: {{ $post->fechaHora }}
             </p>
             <p>
-                @if(\App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') > 0)
-                    @php
-                        $puntuacion = \App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion');
-                    @endphp
-                    
-                    Puntuación: {{ $puntuacion }}
+                {{ $calificacion = CalificacionController::ShowCalificacionPromedio($post->id) }}
+
+                @if($calificacion  > 0)
+                    Puntuación: {{ $calificacion  }}
                 @endif
 
-                @if(\App\Models\UsuarioCalificaPost::all()->where('idPost', '=', $post->id)->avg('puntuacion') == null)
+                @if($calificacion  == null)
                     Puntuación: no calificado
                 @endif
             </p>

@@ -21,7 +21,7 @@ use App\Http\Controllers\PostController;
 
     Route::controller(PostController::class)->group(function () {
         Route::get('sblog', 'Index')->name('sblog');
-        Route::get('sblog-mes', 'Index');
+        Route::get('sblog-mes-{id}', 'ShowPostPorMes')->name('sblog-mes');
         Route::get('sblog-post-{id}', 'ShowPost')->name('post');
         Route::get('sblog-crear', 'Create')->middleware('auth')->name('crear');
         Route::post('sblog-crear', 'Store');

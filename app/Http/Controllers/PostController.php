@@ -6,7 +6,6 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -35,7 +34,9 @@ class PostController extends Controller
             ->orderBy('post.id','DESC')
             ->simplePaginate(3);
 
-        return view('sblog', compact('posts'));
+        $meses = $this->ShowMeses();
+
+        return view('sblog', compact(['posts', 'meses']));
     }
 
     /**
@@ -84,14 +85,23 @@ class PostController extends Controller
         return view('sblog-eliminar', ['post' => $post]);
     }
 
-    public function ShowPostPorMes()
+    public function ShowMeses()
     {
-        //$meses = DB::table('post')
-        //    ->selectRaw("distinct monthname(fechaHora) as mes");
+        $meses = DB::table('post')
+            ->selectRaw("distinct monthname(fechaHora) as mes")->get();
 
-        $meses = 'Enero';
+        return $meses;
+    }
 
-        return View::make('sblog-mes')->with('meses', $meses);
+    public function ShowPostPorMes($id){
+        $posts = Post::query()
+            ->whereRaw("month(fechaHora) = $id")
+            ->orderBy('post.id','DESC')
+            ->simplePaginate(3);
+
+        $meses = $this->ShowMeses();
+
+        return view('sblog', compact(['posts', 'meses']));      
     }
 
     /**
