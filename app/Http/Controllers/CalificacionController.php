@@ -49,4 +49,54 @@ class CalificacionController extends Controller
 
         return $calificacion_promedio;
     }
+
+    public static function ShowCalificacionUsuario($idUsuario, $idPost){
+        $calificacion = DB::table('usuario_califica_post')
+            ->select('puntuacion')
+            ->where('idUsuario', '=', $idUsuario)
+            ->where('idPost', '=', $idPost)
+            ->value('puntuacion');
+
+        return $calificacion;
+    }
+
+    public function Store(Request $request)
+    {
+        $califica = new UsuarioCalificaPost();
+        $califica->idUsuario = $request->idUsuario;
+        $califica->idPost = $request->idPost;
+        $califica->puntuacion = $request->puntuacion;
+        $califica->fecha = now();
+        $califica->save();
+
+        return redirect()->action([PostController::class, 'ShowPostCalificar']);
+    }
+
+    public function Update(Request $request, $idPost)
+    {
+        if($request->puntuacion == 0){
+            $this->Destroy($idPost);
+        }
+
+        if($request->puntuacion >= 0) {
+            $califica = DB::table('usuario_califica_post')
+            ->where('idPost', '=', $idPost)
+            ->get();
+            
+            $califica->fill($request->all());
+            $califica->save();
+        }
+
+        return view('sblog-calificar', ['califica' => $califica]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function Destroy($idPost)
+    {
+        DB::table('usuario_califica_post')->where('idPost', $idPost)->delete();
+        
+        return redirect()->action([PostController::class, 'ShowPostCalificar'])->with('success','Calificación eliminada...');
+    }
 }

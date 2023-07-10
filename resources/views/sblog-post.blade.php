@@ -62,7 +62,7 @@
             @if( auth()->check() )
                 @if($post->idUsuario != auth()->user()->id)
                     <button>
-                        Calificar
+                        <a href="sblog-calificar-{{$post->id}}" style="text-decoration:none">Calificar</a>
                     </button>
                 @endif
                 @if($post->idUsuario == auth()->user()->id)

@@ -88,6 +88,16 @@ class PostController extends Controller
         return view('sblog-post', ['post' => $post]);
     }
 
+    public function ShowPostCalificar($id)
+    {
+        $post = $this->post->obtenerPostPorId($id);
+        if(is_null($post)){
+            abort(404);
+        }
+
+        return view('sblog-calificar', ['post' => $post]);
+    }
+
     public function ShowEliminar($id)
     {
         $post = $this->post->obtenerPostPorId($id);
@@ -162,7 +172,7 @@ class PostController extends Controller
             $PostMuestraPublicidad->save(); 
         }
 
-        return redirect()->action([PostController::class, 'Index']);
+        return view('sblog-post', ['post' => $post]);
     }
 
     /**

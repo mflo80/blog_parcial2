@@ -23,12 +23,15 @@ use App\Http\Controllers\PostController;
         Route::get('sblog', 'Index')->name('sblog');
         Route::get('sblog-mes-{id}', 'ShowPostPorMes')->name('sblog-mes');
         Route::get('sblog-post-{id}', 'ShowPost')->name('post');
+        Route::get('sblog-calificar-{id}', 'ShowPostCalificar')->name('calificar');
         Route::get('sblog-crear', 'Create')->middleware('auth')->name('crear');
         Route::post('sblog-crear', 'Store');
         Route::get('sblog-editar-{id}', 'Edit')->middleware('auth')->name('editar');
         Route::put('sblog-editar-{id}', 'Update');
         Route::get('sblog-eliminar-{id}', 'Destroy')->middleware('auth')->name('eliminar');
     });
+
+    Route::put('sblog-calificar-{id}', [CalificarController::class, 'Store']);
 
     Route::controller(LoginController::class)->group(function () {
         Route::get('sblog-login', 'Index')->name('login');

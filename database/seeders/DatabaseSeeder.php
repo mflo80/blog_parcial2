@@ -18,19 +18,19 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'mflorio',
             'email' => 'mflo80@gmail.com',
-            'password' => Hash::make('1234'),
+            'password' => Hash::make('1234')
         ]);
 
         DB::table('users')->insert([
             'name' => 'prodriguez',
             'email' => 'patriciar@gmail.com',
-            'password' => Hash::make('1234'),
+            'password' => Hash::make('1234')
         ]);
 
         DB::table('users')->insert([
             'name' => 'jperez',
             'email' => 'juanperez@gmail.com',
-            'password' => Hash::make('1234'),
+            'password' => Hash::make('1234')
         ]);
 
         DB::table('post')->insert([
@@ -83,61 +83,86 @@ class DatabaseSeeder extends Seeder
             'titulo' => 'Tiroteo en el Villa los ñeris andan bravos',
             'cuerpo' => 'Ya van como dos noches, que sin estar escuchando música con los auriculares, se escuchan el ruido potente de los fuegos artificiales. Ah no, son la metralletas del Villa Española, deben de estar festejando un cumpleaños, que suerte que tienen, y uno acá posteando en este blog trucho.',
             'idUsuario' => 3,
-            'fechaHora' => now(),
+            'fechaHora' => now()
         ]);
 
         DB::table('publicidad')->insert([
             'nombre' => 'Coca Cola',
             'URL' => 'https://www.coca-coladeuruguay.com.uy/inicio',
-            'fechaExpiracion' => '2023-12-31',
+            'fechaExpiracion' => '2023-12-31'
         ]);
 
         DB::table('publicidad')->insert([
             'nombre' => 'Subrayado Noticiero',
             'URL' => 'https://www.subrayado.com.uy/',
-            'fechaExpiracion' => '2023-12-31',
+            'fechaExpiracion' => '2023-12-31'
+        ]);
+
+        DB::table('post_muestra_publicidad')->insert([
+            'idPost' => 1,
+            'idPublicidad' => 1
+        ]);
+
+        DB::table('post_muestra_publicidad')->insert([
+            'idPost' => 2,
+            'idPublicidad' => 1
+        ]);
+
+        DB::table('post_muestra_publicidad')->insert([
+            'idPost' => 3,
+            'idPublicidad' => 2
+        ]);
+
+        DB::table('post_muestra_publicidad')->insert([
+            'idPost' => 4,
+            'idPublicidad' => 1
+        ]);
+
+        DB::table('post_muestra_publicidad')->insert([
+            'idPost' => 7,
+            'idPublicidad' => 2
         ]);
 
         DB::table('usuario_califica_post')->insert([
             'idUsuario' => 3,
             'idPost' => 1,
             'puntuacion' => 8,
-            'fecha' => now(),
+            'fecha' => now()
         ]);
 
         DB::table('usuario_califica_post')->insert([
             'idUsuario' => 2,
             'idPost' => 1,
             'puntuacion' => 7,
-            'fecha' => now(),
+            'fecha' => now()
         ]);
 
         DB::table('usuario_califica_post')->insert([
             'idUsuario' => 1,
             'idPost' => 2,
             'puntuacion' => 9,
-            'fecha' => now(),
+            'fecha' => now()
         ]);
 
         DB::table('usuario_califica_post')->insert([
             'idUsuario' => 3,
             'idPost' => 2,
             'puntuacion' => 10,
-            'fecha' => now(),
+            'fecha' => now()
         ]);
 
         DB::table('usuario_califica_post')->insert([
             'idUsuario' => 3,
             'idPost' => 3,
             'puntuacion' => 1,
-            'fecha' => now(),
+            'fecha' => now()
         ]);
 
         DB::table('usuario_califica_post')->insert([
             'idUsuario' => 2,
             'idPost' => 3,
             'puntuacion' => 5,
-            'fecha' => now(),
+            'fecha' => now()
         ]);
     }
 }
